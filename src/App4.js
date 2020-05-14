@@ -1,7 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 /**
-  state에 대해 알아보자
+  props type을 활용하여
+  데이터의 타입 확인하기 or 데이터 타입이 맞게 들어왔나 확인가능
+
+  npm i prop-types
+
+  사용하기 위해 import PropTypes from 'prop-types'; 
+  선언  
+  
+  에러가 났다면 npm install 을 해라. 
  */
 
 function Food({name, number, rating}){
@@ -13,6 +21,12 @@ function Food({name, number, rating}){
   )
 }
 /*
+ props type을 활용하여 데이터 타입이 맞게 들어왔나 확인가능
+ props의 타입을 선언하면 확인해준다
+
+Array, boolean, function, number, object, string, symbol,
+node, element, instanceof, Oneof ...etc
+
 
 */
 Food.propTypes = {

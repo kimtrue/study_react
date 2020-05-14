@@ -1,3 +1,3 @@
-#Studt React
+#Study React
 
 React Js Fundmentals Course
