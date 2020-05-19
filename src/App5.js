@@ -4,64 +4,54 @@ import PropTypes from 'prop-types';
   state에 대해 알아보자
  */
 
-function Food({name, number, rating}){
-  return (
-    <div>
-      <h3>{number}</h3>
-      <h3>I Like {name}</h3>
-    </div>
-  )
-}
 /*
+ classs component
 
-*/
-Food.propTypes = {
-  name: PropTypes.string.isRequired,
-  number: PropTypes.number.isRequired 
-}
+ function이 아니기때문에 return이 없다
+ render가 있다. 스크린에 표시
 
+ 리액트는 자동적으로 클래스 컨포넌트의 
+ 렌더 메서드를 실행하려고 한다
 
-const foodILike = [
-  {
-   name: "kimchi",
-   number: 1 ,
-   rating : 3,
-   key: 1
-  },
-  {
-    name: "cake",
-    number: 2 ,
-    rating : 10,
-    key: 2
-   },
-   {
-    name: "ramyoen",
-    number: 3 ,
-    rating : 15,
-    key: 3
-   }
-]
+ state는 Object로 component의 data를 넣는
+ 공간이 있고 이것은 가변한다.
 
+ react는 render function을 refresh하지 않는다.
+ 
+ this.state.count X 
+ this.setState({count: 1})
+ 
+ setState를 호출하면 
+ 새로운 state와 render function을 호출 
+ */
+class App extends React.Component {
+  state = {
+    count: 0
+  }
+ //add를 위한 javascript
+ //state를 사용하는 것은 권장하지 않는다
+ add = () => {
+  //  this.setState({count: this.state.count + 1});
+   this.setState(current => ({count: current.count + 1}));
+ };
+ minus = () => {
+  this.setState(current => ({count: current.count -1}));
+ };
 
-/*
-Food.propTypes = { 내가 얻고 싶은 props에 대한 설명}
-*/
-Food.propTypes = {
-
-}
-
-function App() {
-  return (
+  render(){
+    return (
     <div>
-     {foodILike.map(dish => (
-     <Food
-          key={dish.key}  
-          name={dish.name} 
-          number={dish.number} 
-          rating={dish.rating} />))} 
-         
+      <h1>The number is {this.state.count}</h1>
+
+      <button onClick={this.add}>add</button>
+      <button onClick={this.minus}>minus</button>
     </div>
-  );
+    )
+  }
+
 }
+
+      
+
 
 export default App;
