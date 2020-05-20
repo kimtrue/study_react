@@ -2,7 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import Movie from './Movie';
 /*
- cut summary
+ data 에 fetch하기
+ axios
+
+ https://yts-proxy.now.sh/list_movie.json
+
  */
 class App extends React.Component {
  state = {
